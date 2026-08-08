@@ -930,7 +930,7 @@ button {
   font-weight: 800;
   font-size: 0.92rem;
   letter-spacing: -0.01em;
-  color: var(--text, #ffffff);
+  color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -939,7 +939,7 @@ button {
 .asset-card__name {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-muted, #94a3b8);
+  color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
