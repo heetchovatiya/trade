@@ -8,6 +8,5 @@ dist/
 !.env.example
 
 # Local references and previous prototypes
-assets/
 _old_static/
 untitled folder/

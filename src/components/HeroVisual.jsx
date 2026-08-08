@@ -317,15 +317,15 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
         const boxX = Math.min(mx + 16, width - textWidth - 28)
         const boxY = Math.max(my - 28, 20)
 
-        ctx.fillStyle = dark ? 'rgba(11, 14, 20, 0.94)' : 'rgba(255, 255, 255, 0.94)'
-        ctx.strokeStyle = dark ? 'rgba(197, 160, 89, 0.45)' : 'rgba(184, 134, 11, 0.35)'
+        ctx.fillStyle = dark ? 'rgba(11, 14, 20, 0.94)' : 'rgba(255, 255, 255, 0.95)'
+        ctx.strokeStyle = dark ? 'rgba(197, 160, 89, 0.45)' : 'rgba(197, 160, 89, 0.4)'
         ctx.lineWidth = 1
         ctx.beginPath()
         ctx.roundRect(boxX, boxY, textWidth + 18, 24, 6)
         ctx.fill()
         ctx.stroke()
 
-        ctx.fillStyle = dark ? '#f0d78c' : '#0d0d0d'
+        ctx.fillStyle = dark ? '#f0d78c' : '#0f172a'
         ctx.fillText(hudText, boxX + 9, boxY + 16)
       }
 

@@ -1,6 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
 import { Reveal } from '../hooks/useReveal'
-import { formatPrice, useTickers } from '../hooks/useTickers'
 import HeroVisual from './HeroVisual'
 
 const TRUST = [
@@ -9,10 +8,60 @@ const TRUST = [
   'Institutional liquidity',
 ]
 
+const HERO_ASSETS = [
+  {
+    id: 'eurusd',
+    symbol: 'EURUSD',
+    name: 'Euro vs U.S. Dollar',
+    icon: <div className="asset-badge">EUR</div>,
+  },
+  {
+    id: 'us500',
+    symbol: 'US500',
+    name: 'S&P 500 (US500)',
+    icon: <div className="asset-badge">500</div>,
+  },
+  {
+    id: 'xauusd',
+    symbol: 'GOLD',
+    name: 'Gold Spot',
+    icon: (
+      <div className="asset-badge asset-badge--gold">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+          <polyline points="2 17 12 22 22 17" />
+          <polyline points="2 12 12 17 22 12" />
+        </svg>
+      </div>
+    ),
+  },
+  {
+    id: 'coffee',
+    symbol: 'COFFEE',
+    name: 'US Coffee',
+    icon: <div className="asset-badge">☕</div>,
+  },
+  {
+    id: 'aapl',
+    symbol: 'Apple',
+    name: 'Apple (AAPL.OQ)',
+    icon: <div className="asset-badge"></div>,
+  },
+]
+
 export default function Hero({ onOpenSignup }) {
-  const tickers = useTickers()
   const heroRef = useRef(null)
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
+  const [activeAssetId, setActiveAssetId] = useState('xauusd')
 
   const onMove = useCallback((e) => {
     const el = heroRef.current
@@ -79,30 +128,26 @@ export default function Hero({ onOpenSignup }) {
       </div>
 
       <div className="container">
-        <Reveal className="ticker" delay={720}>
-          <div id="markets" className="ticker-grid" aria-label="Live market prices">
-            {tickers.map((t) => {
-              const up = t.change >= 0
+        <Reveal className="asset-access" delay={720}>
+          <div className="asset-access-header">
+            EASY ACCESS TO 1,400+ GLOBAL ASSETS
+          </div>
+
+          <div id="markets" className="asset-access-grid" aria-label="Easy access global assets">
+            {HERO_ASSETS.map((asset) => {
+              const isActive = activeAssetId === asset.id
               return (
-                <article key={t.pair} className="ticker-card hover-lift">
-                  <div className="ticker-top">
-                    <span className="ticker-pair">{t.pair}</span>
-                    <span className={`ticker-change ${up ? 'up' : 'down'}`}>
-                      {up ? '+' : ''}
-                      {t.change.toFixed(2)}%
-                    </span>
+                <div
+                  key={asset.id}
+                  onClick={() => setActiveAssetId(asset.id)}
+                  className={`asset-card hover-lift ${isActive ? 'active' : ''}`}
+                >
+                  <div className="asset-card__icon">{asset.icon}</div>
+                  <div className="asset-card__info">
+                    <div className="asset-card__symbol">{asset.symbol}</div>
+                    <div className="asset-card__name">{asset.name}</div>
                   </div>
-                  <div className="ticker-price">{formatPrice(t.price)}</div>
-                  <svg className="spark" viewBox="0 0 80 28" aria-hidden="true">
-                    <path
-                      d={t.spark}
-                      fill="none"
-                      stroke={up ? '#1a9b5c' : '#d64545'}
-                      strokeWidth="2"
-                      className="spark-path"
-                    />
-                  </svg>
-                </article>
+                </div>
               )
             })}
           </div>
