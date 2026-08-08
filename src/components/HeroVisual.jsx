@@ -84,6 +84,10 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
 
       ctx.clearRect(0, 0, width, height)
 
+      // 0. Base Canvas Fill (Solid White in Light Mode, Dark Charcoal in Dark Mode)
+      ctx.fillStyle = dark ? '#0a0a0c' : '#ffffff'
+      ctx.fillRect(0, 0, width, height)
+
       // 1. Theme-aware Vignette behind Text Center
       const textVignette = ctx.createRadialGradient(width * 0.5, height * 0.44, 40, width * 0.5, height * 0.44, 480)
       if (dark) {
@@ -91,9 +95,9 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
         textVignette.addColorStop(0.45, 'rgba(9, 11, 16, 0.65)')
         textVignette.addColorStop(1, 'rgba(9, 11, 16, 0)')
       } else {
-        textVignette.addColorStop(0, 'rgba(255, 255, 255, 0.88)')
-        textVignette.addColorStop(0.45, 'rgba(255, 255, 255, 0.65)')
-        textVignette.addColorStop(1, 'rgba(255, 255, 255, 0)')
+        textVignette.addColorStop(0, 'rgba(255, 255, 255, 1)')
+        textVignette.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)')
+        textVignette.addColorStop(1, 'rgba(255, 255, 255, 0.9)')
       }
       ctx.fillStyle = textVignette
       ctx.fillRect(0, 0, width, height)
