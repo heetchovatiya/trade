@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.netlify/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# Local references and previous prototypes
+assets/
+_old_static/
+untitled folder/
