@@ -8,7 +8,7 @@ dist/
 !.env.example
 
 # Local references and previous prototypes
-assets/
+/assets/
 _old_static/
 untitled folder/
 .vercel
