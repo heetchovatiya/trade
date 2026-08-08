@@ -84,6 +84,10 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
 
       ctx.clearRect(0, 0, width, height)
 
+      // 0. Base Canvas Fill (Solid White in Light Mode, Dark Charcoal in Dark Mode)
+      ctx.fillStyle = dark ? '#0a0a0c' : '#ffffff'
+      ctx.fillRect(0, 0, width, height)
+
       // 1. Theme-aware Vignette behind Text Center
       const textVignette = ctx.createRadialGradient(width * 0.5, height * 0.44, 40, width * 0.5, height * 0.44, 480)
       if (dark) {
@@ -91,9 +95,9 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
         textVignette.addColorStop(0.45, 'rgba(9, 11, 16, 0.65)')
         textVignette.addColorStop(1, 'rgba(9, 11, 16, 0)')
       } else {
-        textVignette.addColorStop(0, 'rgba(255, 255, 255, 0.88)')
-        textVignette.addColorStop(0.45, 'rgba(255, 255, 255, 0.65)')
-        textVignette.addColorStop(1, 'rgba(255, 255, 255, 0)')
+        textVignette.addColorStop(0, 'rgba(255, 255, 255, 1)')
+        textVignette.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)')
+        textVignette.addColorStop(1, 'rgba(255, 255, 255, 0.9)')
       }
       ctx.fillStyle = textVignette
       ctx.fillRect(0, 0, width, height)
@@ -317,15 +321,15 @@ export default function HeroVisual({ mouse = { x: 0, y: 0 } }) {
         const boxX = Math.min(mx + 16, width - textWidth - 28)
         const boxY = Math.max(my - 28, 20)
 
-        ctx.fillStyle = dark ? 'rgba(11, 14, 20, 0.94)' : 'rgba(255, 255, 255, 0.94)'
-        ctx.strokeStyle = dark ? 'rgba(197, 160, 89, 0.45)' : 'rgba(184, 134, 11, 0.35)'
+        ctx.fillStyle = dark ? 'rgba(11, 14, 20, 0.94)' : 'rgba(255, 255, 255, 0.95)'
+        ctx.strokeStyle = dark ? 'rgba(197, 160, 89, 0.45)' : 'rgba(197, 160, 89, 0.4)'
         ctx.lineWidth = 1
         ctx.beginPath()
         ctx.roundRect(boxX, boxY, textWidth + 18, 24, 6)
         ctx.fill()
         ctx.stroke()
 
-        ctx.fillStyle = dark ? '#f0d78c' : '#0d0d0d'
+        ctx.fillStyle = dark ? '#f0d78c' : '#0f172a'
         ctx.fillText(hudText, boxX + 9, boxY + 16)
       }
 
