@@ -3,11 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const ThemeContext = createContext(null)
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('uh-theme')
-    if (saved === 'light' || saved === 'dark') return saved
-    return 'light'
-  })
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
