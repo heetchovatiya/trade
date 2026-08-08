@@ -12,11 +12,7 @@ const COLS = [
   {
     title: 'Trading',
     links: ['Account Types', 'Spreads & Fees', 'Copy Trading', 'Education'],
-  },
-  {
-    title: 'Platforms',
-    links: ['Web Trader', 'iOS App', 'Android App', 'API Access'],
-  },
+  }
 ]
 
 export default function Footer() {

@@ -85,23 +85,28 @@ export default function Hero({ onOpenSignup }) {
               const up = t.change >= 0
               return (
                 <article key={t.pair} className="ticker-card hover-lift">
-                  <div className="ticker-top">
-                    <span className="ticker-pair">{t.pair}</span>
-                    <span className={`ticker-change ${up ? 'up' : 'down'}`}>
-                      {up ? '+' : ''}
-                      {t.change.toFixed(2)}%
-                    </span>
+                  <div
+                    className="ticker-icon-circle"
+                    style={{
+                      backgroundColor: t.bgColor,
+                      color: t.color,
+                    }}
+                  >
+                    {t.symbol}
                   </div>
-                  <div className="ticker-price">{formatPrice(t.price)}</div>
-                  <svg className="spark" viewBox="0 0 80 28" aria-hidden="true">
-                    <path
-                      d={t.spark}
-                      fill="none"
-                      stroke={up ? '#1a9b5c' : '#d64545'}
-                      strokeWidth="2"
-                      className="spark-path"
-                    />
-                  </svg>
+                  <div className="ticker-card-content">
+                    <div className="ticker-card-header">
+                      <div className="ticker-card-title-group">
+                        <span className="ticker-pair">{t.pair}</span>
+                        <span className="ticker-name">{t.name}</span>
+                      </div>
+                      <span className={`ticker-change-pill ${up ? 'up' : 'down'}`}>
+                        {up ? '+' : ''}
+                        {t.change.toFixed(2)}%
+                      </span>
+                    </div>
+                    <div className="ticker-price">{formatPrice(t.price, t.pair)}</div>
+                  </div>
                 </article>
               )
             })}

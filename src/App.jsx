@@ -6,6 +6,7 @@ import Partners from './components/Partners'
 import MarketGrid from './components/MarketGrid'
 import Advantages from './components/Advantages'
 import Showcase from './components/Showcase'
+import Screener from './components/Screener'
 import AccountTypes from './components/AccountTypes'
 import Steps from './components/Steps'
 import ToolsInsights from './components/ToolsInsights'
@@ -28,19 +29,20 @@ function Page() {
       <Header onOpenSignup={openSignup} />
       <main>
         <Hero onOpenSignup={openSignup} />
-        <Partners />
+        {/* <Partners /> */}
         <MarketGrid onOpenSignup={openSignup} />
         <Advantages />
-        <Showcase />
+        <Screener onOpenSignup={openSignup} />
+        {/* <Showcase /> */}
         <AccountTypes onOpenSignup={openSignup} />
-        <Steps />
-        <ToolsInsights />
+        {/* <Steps /> */}
+        {/* <ToolsInsights /> */}
         <Results onOpenSignup={openSignup} />
-        <Testimonials />
-        <Protected />
-        <FAQ />
-        <Support />
-        <FinalCTA onOpenSignup={openSignup} />
+        {/* <Testimonials /> */}
+        {/* <Protected /> */}
+        {/* <FAQ /> */}
+        {/* <Support /> */}
+        {/* <FinalCTA onOpenSignup={openSignup} /> */}
       </main>
       <Footer />
       <SignupModal open={signupOpen} onClose={closeSignup} />
