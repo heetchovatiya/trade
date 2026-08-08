@@ -1718,10 +1718,10 @@ button {
 
 .trust-card {
   background: var(--trust-bg);
-  border: 1px solid rgba(197, 160, 89, 0.45);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 40px 36px;
-  box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.08), 0 30px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow);
 }
 
 .trust-badge {
@@ -1758,10 +1758,11 @@ button {
   line-height: 1.25;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .trust-card p {
-  color: #b0b0b0;
+  color: var(--muted);
   font-size: 1rem;
 }
 
@@ -1778,17 +1779,19 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .support-copy h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin-bottom: 10px;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .support-copy p {
-  color: #a8a8a8;
+  color: var(--muted);
   margin-bottom: 22px;
   max-width: 420px;
 }
@@ -1806,8 +1809,9 @@ button {
 /* ========== Footer ========== */
 .site-footer {
   background: var(--footer-bg);
-  color: #c8c8c8;
+  color: var(--muted);
   padding: 64px 0 32px;
+  border-top: 1px solid var(--line);
   transition: background-color var(--dur-theme) var(--ease-slow);
 }
 
@@ -1817,7 +1821,7 @@ button {
   align-items: center;
   margin-bottom: 48px;
   padding-bottom: 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--line);
 }
 
 .site-footer .brand-logo {
@@ -1839,7 +1843,8 @@ button {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--line);
+  color: var(--ink);
   display: grid;
   place-items: center;
   font-size: 0.85rem;
@@ -1865,7 +1870,7 @@ button {
 }
 
 .footer-cols h4 {
-  color: #fff;
+  color: var(--ink);
   font-size: 0.95rem;
   margin-bottom: 14px;
   font-weight: 600;
@@ -1874,7 +1879,7 @@ button {
 .footer-cols a {
   display: block;
   font-size: 0.9rem;
-  color: #999;
+  color: var(--muted);
   padding: 4px 0;
   transition:
     color 0.6s var(--ease-slow),
@@ -1883,14 +1888,14 @@ button {
 }
 
 .footer-cols a:hover {
-  color: var(--gold);
+  color: var(--gold-deep);
   padding-left: 8px;
 }
 
 .disclaimer {
   font-size: 0.75rem;
   line-height: 1.65;
-  color: #666;
+  color: var(--muted);
   margin-bottom: 28px;
 }
 
@@ -1900,9 +1905,9 @@ button {
   flex-wrap: wrap;
   gap: 12px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--line);
   font-size: 0.8rem;
-  color: #777;
+  color: var(--muted);
 }
 
 /* ========== Modal ========== */
@@ -2423,22 +2428,32 @@ button {
 .final-cta__panel {
   text-align: center;
   background:
-    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(197, 160, 89, 0.18), transparent 60%),
-    var(--charcoal);
-  color: #fff;
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(197, 160, 89, 0.15), transparent 60%),
+    var(--surface);
+  color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 64px 40px;
-  border: 1px solid rgba(197, 160, 89, 0.25);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+[data-theme='dark'] .final-cta__panel {
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(197, 160, 89, 0.18), transparent 60%),
+    #121212;
+  color: #fff;
+  border-color: rgba(197, 160, 89, 0.25);
 }
 
 .final-cta__panel h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   margin-bottom: 12px;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .final-cta__panel p {
-  color: #b0b0b0;
+  color: var(--muted);
   max-width: 520px;
   margin: 0 auto 28px;
 }
