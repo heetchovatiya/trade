@@ -11,3 +11,5 @@ dist/
 assets/
 _old_static/
 untitled folder/
+.vercel
+.env*
